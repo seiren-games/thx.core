@@ -29,7 +29,7 @@ import thx.fp.KTree;
 	}
 
 	public function end():Zipper<T> {
-		return Cons(KTree.empty(), this);
+		return cast Cons(KTree.empty(), this);
 	}
 
 	/**
@@ -44,8 +44,8 @@ import thx.fp.KTree;
 						var o:Zipper<T> = new Zipper(Cons(right, Cons(tree, previous)));
 						return o;
 					default:
-						var tree:KTree<T> = Branch(v, siblings);
-						Cons(KTree.empty(), Cons(tree, previous));
+						var tree:KTree<T> = cast Branch(v, siblings);
+						cast Cons(KTree.empty(), Cons(tree, previous));
 				}
 			default: end();
 		}
@@ -60,12 +60,12 @@ import thx.fp.KTree;
 				switch (findLeft(siblings, cursor)) {
 					case Cons(left, _):
 						var tree:KTree<T> = Branch(v, siblings);
-						Cons(left, Cons(tree, previous));
+						cast Cons(left, Cons(tree, previous));
 					default:
 						var tree:KTree<T> = Branch(v, siblings);
-						Cons(KTree.empty(), Cons(tree, previous));
+						cast Cons(KTree.empty(), Cons(tree, previous));
 				}
-			default: Cons(KTree.empty(), this);
+			default: cast Cons(KTree.empty(), this);
 		}
 	}
 
@@ -74,7 +74,7 @@ import thx.fp.KTree;
 	 */
 	public function up():Zipper<T> {
 		var o:Zipper<T> = switch (this) {
-			case Cons(cursor, Cons(parent, rest)): Cons(parent, rest);
+			case Cons(cursor, Cons(parent, rest)): cast Cons(parent, rest);
 			default: this;
 		}
 		return o;
@@ -85,8 +85,8 @@ import thx.fp.KTree;
 	 */
 	public function down():Zipper<T> {
 		return switch this {
-			case Cons(Branch(_, Cons(firstChild, _)), _): Cons(firstChild, this);
-			default: Cons(KTree.empty(), this);
+			case Cons(Branch(_, Cons(firstChild, _)), _): cast Cons(firstChild, this);
+			default: cast Cons(KTree.empty(), this);
 		}
 	}
 
@@ -104,7 +104,7 @@ import thx.fp.KTree;
 		Resets navigation.
 	 */
 	public function root():Zipper<T> {
-		return Cons(this.last(), Nil);
+		return cast Cons(this.last(), Nil);
 	}
 
 	/**
@@ -130,7 +130,7 @@ import thx.fp.KTree;
 			case Cons(Branch(node, children), rest):
 				var new_node = Branch(node, children.prepend(v));
 				update(new_node);
-			default: Cons(v, List.empty());
+			default: cast Cons(v, List.empty());
 		}
 	}
 
@@ -157,8 +157,8 @@ import thx.fp.KTree;
 
 	public function selectChild(new_head:KTree<T>):Zipper<T> {
 		return switch (this) {
-			case Cons(head, t): Cons(new_head, t);
-			default: Cons(new_head, List.empty());
+			case Cons(head, t): cast Cons(new_head, t);
+			default: cast Cons(new_head, List.empty());
 		}
 	}
 

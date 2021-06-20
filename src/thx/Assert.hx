@@ -1,5 +1,6 @@
 package thx;
 
+import deepequal.DeepEqual;
 import haxe.PosInfos;
 import haxe.io.Bytes;
 
@@ -440,7 +441,11 @@ class Assert {
 	}
 
 	// helper methods
-	static function sameAs(expected:Dynamic, value:Dynamic, status:SameStatus) {
+	static function sameAs(expected:Dynamic, value:Dynamic, status:SameStatus):Bool {
+		// An error occurs, so tentatively, use DeepEqual to avoid the error.
+		if (status.recursive) {
+			return DeepEqual.compare(expected, value).match(Success(_));
+		}
 		function withPath(msg:String) {
 			return msg + (Strings.isEmpty(status.path) ? '' : ' at ${status.path}');
 		}
