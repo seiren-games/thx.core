@@ -1,7 +1,7 @@
+--library thx.core
 -cp src
 -cp test
 -lib utest
---library deep_equal
 -D travis
 # -D analyzer
 -main TestAll
