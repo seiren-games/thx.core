@@ -1,4 +1,3 @@
---library thx.core
 -cp src
 -cp test
 -lib utest
