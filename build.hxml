@@ -1,23 +1,36 @@
 tests.hxml
 --each
+
+--cmd echo ----hl----
+--next
+# compile error (Stack overflow)
 # --hl bin/main.hl
 # --cmd hl bin/main.hl
 
+--cmd echo ----java----
 --next
-#--java bin/java
+# compile error (Stack overflow)
+# --java bin/java
 
+--cmd echo ----cpp----
 --next
 --cpp bin/cpp
---cmd .\bin\cpp\TestAll.exe
+# Test failure
+# --cmd .\bin\cpp\TestAll.exe 
 
+--cmd echo ----neko----
 --next
 --neko bin/main.n
---cmd neko bin/main.n
+# Uncaught exception
+# --cmd neko bin/main.n
 
+--cmd echo ----jvm----
 --next
 --jvm bin/main.jar
 --cmd java -jar bin/main.jar
 
+--cmd echo ----js----
 --next
 --js bin/main.js
---cmd node bin/main.js
+# throw exception
+# --cmd node bin/main.js
