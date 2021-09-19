@@ -21,8 +21,7 @@
 --cmd echo ----cpp----
 --next
 --cpp bin/cpp
-# Test failure
-# --cmd .\bin\cpp\TestAll.exe 
+--cmd .\bin\cpp\TestAll.exe
 
 --cmd echo ----neko----
 --next
