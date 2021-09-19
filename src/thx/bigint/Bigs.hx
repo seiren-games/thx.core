@@ -57,7 +57,8 @@ class Bigs {
 	}
 
 	public static function smallToArray(n:Int):Array<Int> {
-		thx.Assert.isTrue(n >= 0, 'Bigs.smallToArray should always be non-negative: $n');
+		if(n < 0)
+			throw 'Bigs.smallToArray should always be non-negative: $n';
 		if (n < BASE)
 			return [n];
 		if (n < DOUBLE_BASE)
