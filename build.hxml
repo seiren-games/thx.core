@@ -1,18 +1,23 @@
 tests.hxml
-
+--each
 # --hl bin/main.hl
 # --cmd hl bin/main.hl
 
+--next
 #--java bin/java
 
-#--cpp bin/cpp
-#--cmd .\bin\cpp\TestAll.exe
+--next
+--cpp bin/cpp
+--cmd .\bin\cpp\TestAll.exe
 
+--next
 --neko bin/main.n
 --cmd neko bin/main.n
 
-#--jvm bin/main.jar
-#--cmd java -jar bin/main.jar
+--next
+--jvm bin/main.jar
+--cmd java -jar bin/main.jar
 
-#--js bin/main.js
-#--cmd node bin/main.js
+--next
+--js bin/main.js
+--cmd node bin/main.js
