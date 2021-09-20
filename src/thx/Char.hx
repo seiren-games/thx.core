@@ -16,7 +16,8 @@ abstract Char(Int) {
 		Converts an `Int` value to `Char`.
 	 */
 	@:from inline public static function fromInt(i:Int):Char {
-		Assert.isTrue(i >= 0, 'Char value should be greater than zero: $i');
+		if (i < 0)
+			'Char value should be greater than zero: $i';
 		return new Char(i);
 	}
 

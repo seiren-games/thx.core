@@ -48,7 +48,7 @@ abstract TreeBag<A>(TreeBagImpl<A>) from TreeBagImpl<A> to TreeBagImpl<A> {
 		}, this);
 	}
 
-	public function map<A, B>(f:A->B):TreeBag<B> {
+	public function map<B>(f:A->B):TreeBag<B> {
 		return switch this {
 			case Empty: Empty;
 			case Cons(x, xs): Cons(f(x), xs.map(f));
@@ -56,7 +56,7 @@ abstract TreeBag<A>(TreeBagImpl<A>) from TreeBagImpl<A> to TreeBagImpl<A> {
 		}
 	}
 
-	public function flatMap<A, B>(f:A->TreeBag<B>):TreeBag<B> {
+	public function flatMap<B>(f:A->TreeBag<B>):TreeBag<B> {
 		return switch this {
 			case Empty: Empty;
 			case Cons(x, xs): f(x) + xs.flatMap(f);
@@ -64,7 +64,7 @@ abstract TreeBag<A>(TreeBagImpl<A>) from TreeBagImpl<A> to TreeBagImpl<A> {
 		}
 	}
 
-	public function foldLeft<A, B>(b:B, f:B->A->B):B {
+	public function foldLeft<B>(b:B, f:B->A->B):B {
 		var acc = b;
 		var nodes = List.singleton(this);
 		while (true) {

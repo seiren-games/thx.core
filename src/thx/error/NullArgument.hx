@@ -30,7 +30,7 @@ class NullArgument extends thx.Error {
 		};
 
 		return macro if (null == $e{expr})
-			throw new thx.error.NullArgument('argument "$name" cannot be null');
+			throw new thx.error.NullArgument('argument ' + $v{name} + 'cannot be null');
 	}
 
 	/**
@@ -48,29 +48,29 @@ class NullArgument extends thx.Error {
 		switch haxe.macro.Context.typeof(expr) {
 			case TInst(_.toString() => "Array", _):
 				return macro if (null == $e{expr})
-					throw new thx.error.NullArgument('Array argument "$n" cannot be null')
+					throw new thx.error.NullArgument('Array argument ' + $v{n} + ' cannot be null')
 				else if ($e{expr}.length == 0)
-					throw new thx.error.NullArgument('Array argument "$n" cannot be empty');
+					throw new thx.error.NullArgument('Array argument ' + $v{n} + ' cannot be empty');
 			case TInst(_.toString() => "String", _):
 				return macro if (null == $e{expr})
-					throw new thx.error.NullArgument('String argument "$n" cannot be null')
+					throw new thx.error.NullArgument('String argument ' + $v{n} + ' cannot be null')
 				else if ($e{expr} == "")
-					throw new thx.error.NullArgument('String argument "$n" cannot be empty');
+					throw new thx.error.NullArgument('String argument ' + $v{n} + ' cannot be empty');
 			case TType(_.toString() => "Iterator", _):
 				return macro {
 					var it = $e{expr};
 					if (null == it)
-						throw new thx.error.NullArgument('Iterator argument "$n" cannot be null')
+						throw new thx.error.NullArgument('Iterator argument ' + $v{n} + ' cannot be null')
 					else if (!it.hasNext())
-						throw new thx.error.NullArgument('Iterator argument "$n" cannot be empty');
+						throw new thx.error.NullArgument('Iterator argument ' + $v{n} + ' cannot be empty');
 				}
 			case TType(_.toString() => "Iterable", _):
 				return macro {
 					var it = $e{expr};
 					if (null == it)
-						throw new thx.error.NullArgument('Iterable argument "$n" cannot be null')
+						throw new thx.error.NullArgument('Iterable argument ' + $v{n} + ' cannot be null')
 					else if (!it.iterator().hasNext())
-						throw new thx.error.NullArgument('Iterable argument "$n" cannot be empty');
+						throw new thx.error.NullArgument('Iterable argument ' + $v{n} + ' cannot be empty');
 				}
 			case _:
 				return haxe.macro.Context.error("argument type must be a String, an Array, an Iterator or an Iterable", expr.pos);

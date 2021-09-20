@@ -165,10 +165,10 @@ abstract Maybe<T>(Null<T>) from Null<T> {
 	public function orElse(alt:Maybe<T>):Maybe<T>
 		return if (null == this) alt else this;
 
-	public function all<T>(maybe:Maybe<T>, f:T->Bool):Bool
+	public function all(maybe:Maybe<T>, f:T->Bool):Bool
 		return if (null == this) true else f(this);
 
-	public function any<T>(maybe:Maybe<T>, f:T->Bool):Bool
+	public function any(maybe:Maybe<T>, f:T->Bool):Bool
 		return if (null == this) false else f(this);
 
 	/**
@@ -182,7 +182,7 @@ abstract Maybe<T>(Null<T>) from Null<T> {
 	public function toSuccess<E>(error:E):Validation<E, T>
 		return if (null == this) Validation.failure(error) else Validation.success(this);
 
-	public function toSuccessNel<E, T>(maybe:Maybe<T>, error:E):Validation.VNel<E, T>
+	public function toSuccessNel<E>(maybe:Maybe<T>, error:E):Validation.VNel<E, T>
 		return if (null == this) Validation.failureNel(error) else Validation.successNel(this);
 
 	public function toFailure<TSuccess>(value:TSuccess):Validation<T, TSuccess>
