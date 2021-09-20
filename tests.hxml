@@ -27,9 +27,3 @@
 --next
 --jvm bin/main.jar
 --cmd java -jar bin/main.jar
-
---cmd echo ----js----
---next
---js bin/main.js
-# throw exception
-# --cmd node bin/main.js
