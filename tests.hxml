@@ -23,12 +23,6 @@
 --cpp bin/cpp
 --cmd .\bin\cpp\TestAll.exe
 
---cmd echo ----neko----
---next
---neko bin/main.n
-# Uncaught exception
-# --cmd neko bin/main.n
-
 --cmd echo ----jvm----
 --next
 --jvm bin/main.jar
