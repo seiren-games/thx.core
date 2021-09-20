@@ -13,11 +13,6 @@
 # --hl bin/main.hl
 # --cmd hl bin/main.hl
 
---cmd echo ----java----
---next
-# compile error (Stack overflow)
-# --java bin/java
-
 --cmd echo ----cpp----
 --next
 --cpp bin/cpp
