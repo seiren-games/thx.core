@@ -13,11 +13,6 @@
 --hl bin/main.hl
 --cmd hl bin/main.hl
 
---cmd echo ----cpp----
---next
---cpp bin/cpp
---cmd .\bin\cpp\TestAll.exe
-
 --cmd echo ----jvm----
 --next
 --jvm bin/main.jar
