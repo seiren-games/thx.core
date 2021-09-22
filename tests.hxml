@@ -10,8 +10,7 @@
 --cmd echo ----hl----
 --next
 # compile error (Stack overflow)
-# --hl bin/main.hl
-# --cmd hl bin/main.hl
+--hl bin/main.hl
 
 --cmd echo ----cpp----
 --next
