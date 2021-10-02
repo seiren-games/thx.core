@@ -1454,8 +1454,15 @@ class ArrayFloats {
 	/**
 		Filters out all null or Math.NaN floats in the array
 	**/
-	public static function compact(arr:ReadonlyArray<Null<Float>>):Array<Float> // the cast is required to compile safely to C#
-		return cast arr.filter(function(v) return null != v && Math.isFinite(v));
+	public static function compact(arr:ReadonlyArray<Null<Float>>):Array<Float> {
+		return [
+			for (v in arr) {
+				if (null != v && Math.isFinite(v)) {
+					v;
+				}
+			}
+		];
+	}
 
 	/**
 		Finds the max float element in the array.
