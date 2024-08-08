@@ -17,7 +17,7 @@ abstract Char(Int) {
 	 */
 	@:from inline public static function fromInt(i:Int):Char {
 		if (i < 0)
-			'Char value should be greater than zero: $i';
+			throw 'Char value should be greater than zero: $i';
 		return new Char(i);
 	}
 

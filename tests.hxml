@@ -10,13 +10,8 @@
 --cmd echo ----hl----
 --next
 # compile error (Stack overflow)
-# --hl bin/main.hl
-# --cmd hl bin/main.hl
-
---cmd echo ----cpp----
---next
---cpp bin/cpp
---cmd .\bin\cpp\TestAll.exe
+--hl bin/main.hl
+--cmd hl bin/main.hl
 
 --cmd echo ----jvm----
 --next

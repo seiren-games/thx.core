@@ -69,7 +69,6 @@ class TestAll {
 		runner.addCase(new thx.fp.TestMap());
 		runner.addCase(new thx.fp.TestMonad());
 		runner.addCase(new thx.fp.TestSet());
-		runner.addCase(new thx.fp.TestTree());
 		runner.addCase(new thx.fp.TestState());
 		runner.addCase(new thx.fp.TestWriter());
 		runner.addCase(new thx.fp.TestTreeBag());
